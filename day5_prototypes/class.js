@@ -14,7 +14,6 @@ class Shape {
     area() {
         return this.width * this.height
     }
-
 }
 
 // Shape.prototype.color = "red"
