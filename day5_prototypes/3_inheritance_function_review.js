@@ -35,7 +35,7 @@ function Teacher(first, last, age, gender, interests, subject) {
 // }
 
 
-let person1 = new Person("Bob","Ross",20,"male",["coding", "painting"] )
+let person1 = new Person("Surendra","Sapkale",20,"male",["coding", "painting"] )
 let teacher1 = new Teacher("nandini", "nayak", 25, "female",["cooking","music"],"javascript")
 
 // console.log(teacher1.name)
