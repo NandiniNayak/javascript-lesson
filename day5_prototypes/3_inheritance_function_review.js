@@ -59,14 +59,14 @@ let teacher2 = new Teacher("nandini", "nayak", 25, "female",["cooking","music"],
 
 console.log(Teacher.prototype.constructor) // [Function: Person]
 
-// 3. This can become a problem, so we need to set this right. You can do so by going back to your source code and adding the following line at the bottom:
+// 3. This can become a problem, so we need to set this right. You can do so by  adding the following line :
 
 // Object.defineProperty(Teacher.prototype, 'constructor', { 
 //     value: Teacher, 
 //     enumerable: false, // so that it does not appear in 'for in' loop
 //     writable: true });
 
-// console.log(Teacher.prototype.constructor) // [Function: Person]
+// console.log(Teacher.prototype.constructor) // [Function: Teacher]
 
 Teacher.prototype.greeting = function() {
   let prefix;
