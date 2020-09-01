@@ -51,9 +51,6 @@ class ClassHuman{
     speak(){
          return `hello my name is ${this.name}`
     }
-
-    // resides here
-    
 }
 
 ClassHuman.prototype.hairColor = "brown"
