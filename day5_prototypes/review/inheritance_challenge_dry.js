@@ -28,55 +28,44 @@ class Person{
     constructor(name, city){
         this.name = name
         this.city = city
-        // this here points to instance
-        // this.details = {name, city}
-        Person.counter ++
+        // console.log(this.constructor.name)
+        Person.peopleCount(this.constructor.name)
     }
-    // static means class method : called directly upon class
+
+    static peopleCount(name){ 
+            Person.counter[name] = Person.counter[name] ? Person.counter[name] + 1 : 1
+            if (name !== this.name){
+                Person.counter[this.name]= Person.counter[this.name] ?  Person.counter[this.name] + 1 : 1
+            }
+    }
+    // class variable to track teacher1, student and person count
+    static counter = {}
     static count(){
-        this.counter = 0
-        // this points to Person
+        return Person.counter[this.name]
     }
 }
+
 class Teacher extends Person{
     constructor(name, city, classesTeaching){
-        // this.name = name
-        // this.city = city
         super(name,city)
         this.classesTeaching = classesTeaching
-        Teacher.counter ++
     }
-    super
-    
-    // static count(){
-    //     this.counter = 0
-    // }
 }
+
 class Student extends Person{
     constructor(name, city, classesStudying){
-         super(name,city)
+        super(name,city)
         this.classesStudying = classesStudying
-        Student.counter ++
     }
-    super
-    // static count(){
-    //     this.counter = 0
-    // }
 }
 
-// ininitalize counters to zero
-Person.count()
-Teacher.count()
-Student.count()
+let teacher1 = new Teacher('nands','sydney',["ruby","js"])
+let teacher2 = new Teacher('alex','sydney',["js","game development"])
+let teacher3 = new Teacher('alex','sydney',["js","game development"])
+let student1 = new Student('Rachel','Sydney',["ruby","js"])
+let student2 = new Student('Tom','Sydney',["ruby","js"])
 
-teacher1 = new Teacher("nands","syndey",["ruby", "js"])
-teacher2 = new Teacher("alex","syndey",["ruby", "js"])
-student1 = new Student("callum","syndey",["ruby", "js"])
-student2 = new Student("luke","syndey",["ruby", "js"])
-student3 = new Student("jordon","syndey",["ruby", "js"])
+console.log(Person.count())
+console.log(Teacher.count())
+console.log(Student.count())
 
-console.log(Person.counter)
-console.log(Teacher.counter)
-console.log(Student.counter)
-
-// Person.count = 0
