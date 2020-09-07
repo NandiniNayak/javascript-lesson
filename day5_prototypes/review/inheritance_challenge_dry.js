@@ -28,10 +28,11 @@ class Person{
     constructor(name, city){
         this.name = name
         this.city = city
-        // console.log(this.constructor.name)
+        // console.log(this.constructor.name)  // Teacher or Student or Person
         Person.peopleCount(this.constructor.name)
     }
 
+    // update the key and value in the counter object to holder teacher1, student and person count
     static peopleCount(name){ 
             Person.counter[name] = Person.counter[name] ? Person.counter[name] + 1 : 1
             if (name !== this.name){
