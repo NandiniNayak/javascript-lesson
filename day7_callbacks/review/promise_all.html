@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+        function getJoke() {
+            return new Promise((resolve, reject) => {
+                $.getJSON("https://icanhazdadjoke.com/", joke => {
+                    // debug the problem why is its erroring or rejecting?
+                    if (joke.joke) {
+                        resolve(joke.joke);
+                    }
+
+                    reject(new Error("Could not retrieve joke"));
+                });
+            });
+        }
+
+        document.querySelector("#button").addEventListener("click", () => {
+            let jokePromises = [
+                getJoke(),
+                getJoke(),
+                getJoke(),
+                getJoke(),
+                getJoke()
+            ];
+
+            Promise.all(jokePromises)
+                .then(jokes => console.log(jokes))
+                .catch(err => console.log(err));
+        });
+    </script>
+</body>
+
+</html>

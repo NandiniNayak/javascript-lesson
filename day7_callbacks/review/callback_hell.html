@@ -1,0 +1,29 @@
+<!-- https://edstem.org/courses/4296/lessons/4941/slides/36579 -->
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+          document.querySelector("#button").addEventListener("click", () => {
+                $.getJSON("https://icanhazdadjoke.com/", (joke1) => {
+                    $.getJSON("https://icanhazdadjoke.com/", (joke2) => {
+                        $.getJSON("https://icanhazdadjoke.com/", (joke3) => {
+                            $.getJSON("https://icanhazdadjoke.com/", (joke4) => {
+                                $.getJSON("https://icanhazdadjoke.com/", (joke5) => {
+                                    let jokeArray = [joke1, joke2, joke3, joke4, joke5];
+                                    console.log(jokeArray);
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+        function compileJokes(num,callback, arr=[]) {
+            // console.log("arr----:" + arr)
+            let url = "https://icanhazdadjoke.com/";
+            $.getJSON(url, (dadJoke) => {
+                arr.push(dadJoke.joke);
+                if (num === arr.length) {
+                    return callback(arr); //calling callback function
+                }
+                return compileJokes(num, callback, arr);
+            });
+        }
+        document.querySelector("#button").addEventListener("click", () => {
+            compileJokes(5, function(data){
+                // whatever you wanted to do with the joke list
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+
+</html>

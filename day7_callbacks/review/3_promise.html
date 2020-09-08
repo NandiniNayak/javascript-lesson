@@ -1,0 +1,62 @@
+<!-- https://edstem.org/courses/4296/lessons/4941/slides/36579 -->
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+        // function that returns a promise : when resolved gives a joke, when rejected throws an error
+        function getJoke(){
+            return new Promise((resolve, reject)=>{
+               $.getJSON("https://icanhazdadjoke.com/", (data) => {
+                   if(data){
+                       resolve(data)
+                   }
+                   reject("could not retrieve the joke")
+               })
+            })
+        }
+
+        document.querySelector("#button").addEventListener("click",() => {
+            let jokes =[]
+            getJoke()
+                .then(joke1 => {
+                    jokes.push(joke1)
+                    return getJoke()
+                })
+                .then(joke2 => {
+                    jokes.push(joke2)
+                    return getJoke()
+                })
+                .then(joke3 => {
+                    jokes.push(joke3)
+                    return getJoke()
+                })
+                .then(joke4 => {
+                    jokes.push(joke4)
+                    return getJoke()
+                })
+                .then(joke5 => {
+                    jokes.push(joke5)
+                    console.log(jokes)
+                })
+                .catch(err =>  console.log(err))
+                
+        })
+    </script>
+</body>
+
+</html>
+
+
+// getJoke()
+//     .then((data) => {
+//         getJoke()
+//             .then
+//             .catch
+//     })
+//     .catch()

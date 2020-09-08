@@ -1,0 +1,36 @@
+<!-- https://edstem.org/courses/4296/lessons/4941/slides/36579 -->
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+        // definition
+        function compileJokes(num, callback, arr = []) {
+            let url = "https://icanhazdadjoke.com/";
+            $.getJSON(url, (dadJoke) => {
+                arr.push(dadJoke.joke);
+                if (num === arr.length) {
+                    // when you have 5 jokes available : print that data to console
+                    return callback(arr);
+                }
+                // recursively calling same function
+                return compileJokes(num, callback, arr);
+            });
+        }
+        document.querySelector("#button").addEventListener("click", () => {
+            // function call
+            compileJokes(5, (data) => {
+                // whatever you wanted to do with the joke list
+                // polish it, show it nicely
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+
+</html>
