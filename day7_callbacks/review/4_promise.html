@@ -23,29 +23,27 @@
             })
         }
 
-        // document.querySelector("#button").addEventListener("click", () => {
-        //     // array of functions returning promise
-        //     let jokePromises = [getJoke(), getJoke(), getJoke(), getJoke(), getJoke()]
-
-        //     document.querySelector("#button").addEventListener("click",() => {
-        //         Promise.all(jokePromises)
-        //                     .then(jokes => console.log(jokes))
-        //                     .catch(err => console.log(err))
-        //     })
-        // })
-         document.querySelector("#button").addEventListener("click", () => {
-                let jokePromises = [
-                    getJoke(),
-                    getJoke(),
-                    getJoke(),
-                    getJoke(),
-                    getJoke()
-                ];
-
+        document.querySelector("#button").addEventListener("click", () => {
+            // array of functions returning promise
+            let jokePromises = [getJoke(), getJoke(), getJoke(), getJoke(), getJoke()]
                 Promise.all(jokePromises)
-                    .then(jokes => console.log(jokes))
-                    .catch(err => console.log(err));
-            });
+                            .then(jokes => console.log(jokes))
+                            .catch(err => console.log(err))
+            })
+
+        //  document.querySelector("#button").addEventListener("click", () => {
+        //         let jokePromises = [
+        //             getJoke(),
+        //             getJoke(),
+        //             getJoke(),
+        //             getJoke(),
+        //             getJoke()
+        //         ];
+
+        //         Promise.all(jokePromises)
+        //             .then(jokes => console.log(jokes))
+        //             .catch(err => console.log(err));
+        //     });
     </script>
 </body>
 
