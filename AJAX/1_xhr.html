@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+<body>
+    <button id="button"> Get user name</button>
+    <script>
+        let getUserName = () => {
+            // make a xhr object
+            let request = new XMLHttpRequest();
+            // initialize request
+            request.open(
+                "GET",
+                "https://randomuser.me/api/",
+                true
+            )
+            // send the request
+            request.send()
+            // handle the response:
+            // on success
+            request.onload = (response) =>{
+                const parsedResults =  JSON.parse(request.response)
+                console.log(parsedResults.results[0].name.first)
+            }
+            // on error
+            request.onerror =(err) =>  console.log(err)
+        }
+        document.getElementById("button").addEventListener("click", getUserName)
+    </script>
+</body>
+</html>
