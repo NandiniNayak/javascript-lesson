@@ -8,7 +8,7 @@ let covidSummary = () => {
                             NewDeaths: ${result.NewDeaths}
                             NewRecovered: ${result.NewRecovered}
                             TotalConfirmed: ${result.TotalConfirmed}
-                            TotalDeaths: ${result. TotalDeaths}
+                            TotalDeaths: ${result.TotalDeaths}
                             TotalRecovered: ${result.TotalRecovered}`
             document.body.appendChild(ul).appendChild(li)
         })
